@@ -1,0 +1,20 @@
+{
+  "name": "instagram_clone_backend",
+  "version": "1.0.0",
+  "description": "Backend para el clone de Instagram",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "author": "Juan Manuel Guzman",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.0",
+    "graphql-yoga": "^1.16.2",
+    "jsonwebtoken": "^8.3.0",
+    "prisma-binding": "^2.1.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
+}

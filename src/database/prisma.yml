@@ -1,0 +1,7 @@
+endpoint: https://eu1.prisma.sh/juan-manuel-guzman-rodriguez-0b9982/instagram/dev
+datamodel: datamodel.graphql
+
+#Deploy Hook
+hooks:
+  post-deploy:
+    - graphql get-schema --project database

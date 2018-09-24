@@ -1,0 +1,57 @@
+type User {
+  id: ID! @unique
+  name: String!
+  lastname:String!
+  email:String! @unique
+  password:String!
+  birth_date:DateTime!
+  gender:Genders
+  status:Boolean @default(value:true)
+  paypal_id:String
+  avatar:String @default(value:"https://vignette.wikia.nocookie.net/bungostraydogs/images/1/1e/Profile-icon-9.png/revision/latest?cb=20171030104015")
+  follower: [Followers!]! @relation(name: "Follower")
+  following: [Followers!]! @relation(name: "Following")
+}
+
+type Followers {
+  id: ID! @unique
+  follower: User! @relation(name: "Follower")
+  following: User! @relation(name: "Following")
+}
+
+type Likes {
+  id: ID! @unique,
+  user: User!
+  photo: Photo!
+}
+
+type Photo {
+  id: ID! @unique
+  user: User
+  path_photo:String!
+  likes: [Likes!]!
+}
+
+type Coments{
+  id: ID! @unique
+  user:User!
+  photo:Photo!
+}
+
+type Suscription {
+  id: ID! @unique
+  user:User!
+  suscription_type:Suscriptions!
+  end_date:DateTime!
+  price:Int!
+}
+
+enum Suscriptions{
+  FREE
+  GOLD
+  PREMIUM
+}
+enum Genders {
+  H
+  M
+}

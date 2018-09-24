@@ -1,0 +1,23 @@
+#import User, Photo, Likes, Followers from './generated/prisma.graphql'
+#import Suscriptions from './generated/prisma.graphql'
+
+type Query {
+    users: [User!]!
+    me: User!
+    photosByUser: [Photo!]!
+}
+
+type Mutation {
+    signup(name: String!, email: String!, lastname: String!, password: String!, birth_date: String!): AuthPayload
+    login(email: String!, password: String!): AuthPayload
+    updateUser(name: String, lastname: String, password:String, birth_date:String): User!
+    publicPhoto(path_photo:String!): Photo!
+    likePhoto(photo:ID!): Likes!
+    follow(following: ID!): Followers
+
+}
+
+type AuthPayload {
+    token: String
+    user: User
+}
